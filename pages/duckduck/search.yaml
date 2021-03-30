@@ -1,0 +1,5 @@
+duckduck:
+  search-bar:
+    id: search_form_input_homepage
+  search-btn:
+    id: search_button_homepage

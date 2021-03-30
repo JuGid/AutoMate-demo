@@ -1,0 +1,6 @@
+browser: chrome
+variables:
+  address: http://wikipedia.com
+scenario:
+  steps:
+    - go: '{{ scenario.address }}'

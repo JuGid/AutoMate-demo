@@ -1,0 +1,21 @@
+{
+    "name": "jugid/auto-mate-demo",
+    "description": "A typical demo of how to use AutoMate",
+    "type": "project",
+    "require": {
+        "jugid/auto-mate": "^0.7.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jugid",
+            "email": "gidjulien@gmail.com"
+        }
+    ],
+    "autoload": {
+     "psr-4": {
+      "Demo\\": "logics"
+     },
+     "classmap": ["logics"]
+    }
+}

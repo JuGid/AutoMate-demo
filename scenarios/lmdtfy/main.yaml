@@ -1,0 +1,14 @@
+browser: chrome
+variables:
+  address: https://duckduckgo.com
+  elementToFind: 'AutoMate Github'
+scenario:
+  steps:
+    - go: '{{ scenario.address }}'
+    - page: duckduck.search
+    - fill:
+        pageElement: search-bar
+        with: '{{ scenario.elementToFind }}'
+    - click:
+        pageElement: search-btn
+
