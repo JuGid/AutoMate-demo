@@ -5,8 +5,16 @@ require __DIR__.'/vendor/autoload.php';
 use Automate\AutoMate;
 
 $scenarios = [
+    'condition' => [false, true, 'chrome'],
+    'errors' => [false, true, 'chrome'],
+    'import' => [false, true, 'chrome'],
+    'lmdtfy' => [false, true, 'chrome'],
+    'loop' => [false, true, 'chrome'],
+    'page' => [false, true, 'chrome'],
+    'simple' => [false, true, 'chrome'],
+    'w3c' => [false, true, 'chrome'],
     'wikipedia' => [false, true, 'chrome'],
-    'lmdtfy' => [false, true, 'chrome']
+    'withspec' => [true, true, 'chrome']
 ];
 
 //Uncomment this to use your config file
