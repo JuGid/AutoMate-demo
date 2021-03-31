@@ -1,0 +1,18 @@
+browser: chrome
+variables:
+  name: 'bonjour'
+  cookie: 'nouveau'
+scenario:
+  steps:
+    - go: '{{ spec.url }}'
+    - cookie: 
+        name: "{{ spec.cookiename }}"
+        value: "{{ scenario.cookie }}" 
+    - configuration:
+        wait:
+          for: 2
+          every: 100
+    - urlIs: https://www.youtube.com/
+
+
+  
