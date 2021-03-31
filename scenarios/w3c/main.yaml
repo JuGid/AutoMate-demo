@@ -1,0 +1,34 @@
+browser: chrome
+variables:
+  address: https://www.w3schools.com/html/html_tables.asp
+  countrySearch: UK
+scenario:
+  steps:
+    - go: '{{ scenario.address }}'
+    - set:
+        varname: 'tableIndex'
+        value: 0
+    - loop:
+        repeat: 6
+        steps:
+          - get:
+              xpath: '//table[@id ="customers"]//tbody//tr[{{ world.tableIndex }}]//td[2]'
+              what: text
+              varname: 'tableCountry'
+          - condition:
+              eval: '"{{ world.tableCountry }}" == "{{ scenario.countrySearch }}"'
+              correct:
+                steps:
+                  - exit: '{{ scenario.countrySearch }} element detected'
+              incorrect:
+                steps:
+                  - get:
+                      xpath: '//table[@id ="customers"]//tbody//tr[{{ world.tableIndex }}]//td[0]'
+                      what: text
+                      varname: 'tableCompany'
+                  - print: '{{ world.tableCountry }} : {{ world.tableCompany }}'
+          - set:
+              varname: 'tableIndex'
+              value: '{{ world.tableIndex }}'
+              add: 1
+    - print: End without finding the company for UK
