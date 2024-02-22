@@ -3,26 +3,30 @@
 require __DIR__.'/vendor/autoload.php';
 
 use Automate\AutoMate;
+use Automate\Launcher\Launcher;
 
-$scenarios = [
-    'condition' => [false, true, 'chrome'],
-    'errors' => [false, true, 'chrome'],
-    'import' => [false, true, 'chrome'],
-    'lmdtfy' => [false, true, 'chrome'],
-    'loop' => [false, true, 'chrome'],
-    'page' => [false, true, 'chrome'],
-    'simple' => [false, true, 'chrome'],
-    'w3c' => [false, true, 'chrome'],
-    'wikipedia' => [false, true, 'chrome'],
-    'withspec' => [true, true, 'chrome']
-];
+$configuration_file = __DIR__.'/config/demo-config.yaml';
 
-//Uncomment this to use your config file
-//$automate = new AutoMate(__DIR__.'/config/your-config.yaml');
-$automate = new AutoMate(__DIR__.'/config/demo-config.yaml');
+$automate = new AutoMate($configuration_file);
 
-//foreach($scenarios as $scenario => $runConfig) {
-//    $automate->run($scenario, $runConfig[0], $runConfig[1], $runConfig[2]);
-//}
+//Uncomment this to run every demos
+/*
+$launcher = new Launcher($configuration_file);
+$launcher
+    ->add('condition')
+    ->add('errors')
+    ->add('import')
+    ->add('lmdtfy')
+    ->add('loop')
+    ->add('page')
+    ->add('simple')
+    ->add('w3c')
+    ->add('wikipedia')
+    ->add('withspec')
+;
+$launcher->run();
+$launcher->printReport();
+*/
+
 $automate->run('wikipedia', false, true);
 
